@@ -19,6 +19,9 @@
 
 include_recipe "python"
 
+# we're having an error with the latest distribute when pulling the dependency from supervisor. install first.
+python_pip "meld3"
+
 python_pip "supervisor" do
   action :upgrade
   version node['supervisor']['version'] if node['supervisor']['version']
